@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
+import SearchBar from './components/SearchBar'
 
 
 const todoData = [
@@ -48,6 +49,16 @@ class App extends React.Component {
     })
   }
 
+  searchFor = (searchValue) => {
+    this.setState({
+      todos: this.state.todos.filter(todo => {
+        if(todo.task.includes(searchValue)) {
+          return todo
+        }
+      })
+    })
+  }
+
 
   addTodo = taskName => {
     const newTask = {
@@ -65,6 +76,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <SearchBar searchFor={this.searchFor}/>
         <TodoList 
         todos={this.state.todos} 
         toggleCompleted={this.toggleCompleted}
