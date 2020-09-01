@@ -12,17 +12,14 @@ class SearchBar extends React.Component {
         this.setState({
             search: e.target.value
         });
-    }
-
-    handleSubmit = e => {
-        e.preventDefault()
         this.props.searchFor(this.state.search)
     }
+
 
 render() {
     return (
         <div className="search-bar">
-            <form onSubmit={this.handleSubmit}>
+            <form >
                 <label>Search for Tasks </label>
                 <input 
                 type='text'

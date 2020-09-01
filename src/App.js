@@ -49,6 +49,7 @@ class App extends React.Component {
     })
   }
 
+
   searchFor = (searchValue) => {
     this.setState({
       todos: this.state.todos.filter(todo => {
@@ -76,7 +77,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <SearchBar searchFor={this.searchFor}/>
+        <SearchBar searchFor={this.searchFor} />
         <TodoList 
         todos={this.state.todos} 
         toggleCompleted={this.toggleCompleted}
